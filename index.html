@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ahmed Sami Maatougui — Web developer in Annaba</title>
+<meta name="description" content="Websites and web apps in Arabic, French and English. Based in Annaba, Algeria.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3F4F1;
+    --ink:#102A2F;
+    --sea:#1F6F78;
+    --sun:#F2B33D;
+    --muted:#566568;
+    --line:#D6DBD8;
+    --display:"Bricolage Grotesque","IBM Plex Sans Arabic",system-ui,sans-serif;
+    --body:"IBM Plex Sans Arabic",system-ui,-apple-system,"Segoe UI",sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6}
+  html[dir="rtl"] body{font-size:1.125rem}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:4px}
+  .wrap{max-width:1080px;margin-inline:auto;padding-inline:clamp(1.25rem,5vw,3rem)}
+
+  /* top bar */
+  header{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding-block:1.5rem}
+  .name{font-family:var(--display);font-weight:700;font-size:1.125rem;text-decoration:none}
+  .langs{display:flex;border:1.5px solid var(--ink);border-radius:999px;padding:3px}
+  .langs button{font:inherit;font-size:.9rem;font-weight:500;background:none;border:0;color:var(--ink);padding:.35rem .9rem;border-radius:999px;cursor:pointer}
+  .langs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+  /* hero */
+  .hero{padding-block:clamp(3rem,10vw,7rem) clamp(3rem,8vw,5rem)}
+  .hero h1{font-family:var(--display);font-weight:700;font-size:clamp(2.5rem,7.5vw,5.25rem);line-height:1.02;letter-spacing:-.02em;max-width:14ch;transition:opacity .25s}
+  html[dir="rtl"] .hero h1{line-height:1.25;letter-spacing:0;font-family:var(--body)}
+  .hero p{margin-top:1.5rem;max-width:46ch;font-size:1.2rem;color:var(--muted)}
+  .hero .hint{margin-top:2rem;font-size:.95rem;color:var(--sea);max-width:50ch}
+  .cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2.25rem}
+  .btn{display:inline-block;text-decoration:none;font-weight:700;padding:.85rem 1.4rem;border-radius:10px;border:2px solid var(--ink)}
+  .btn.primary{background:var(--sun);border-color:var(--sun);color:var(--ink)}
+  .btn.primary:hover{background:#E8A520;border-color:#E8A520}
+  .btn.ghost:hover{background:var(--ink);color:var(--paper)}
+  .fading{opacity:0}
+
+  section{padding-block:clamp(3rem,8vw,5rem);border-top:1.5px solid var(--line)}
+  h2{font-family:var(--display);font-size:clamp(1.75rem,4vw,2.5rem);font-weight:700;letter-spacing:-.01em;margin-bottom:2rem}
+  html[dir="rtl"] h2{font-family:var(--body);letter-spacing:0}
+
+  /* work */
+  .work{display:grid;gap:clamp(2rem,6vw,4rem)}
+  .project{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:clamp(1.5rem,4vw,3rem);align-items:start}
+  .project h3{font-family:var(--display);font-size:1.6rem;margin-bottom:.35rem}
+  .project .role{color:var(--sea);font-weight:500;margin-bottom:1rem}
+  .project p{max-width:60ch}
+  .project ul.points{margin:1.25rem 0 0;padding-inline-start:1.1rem;display:grid;gap:.4rem}
+  .featured{padding:clamp(1.5rem,4vw,2.5rem);border-radius:18px}
+  .theme-tea{background:#2B2F45;color:#ECEAF2}
+  .theme-tea .role{color:#E0B565}
+  .theme-lg{background:#0C1512;color:#EFE6D2}
+  .theme-lg .role{color:#F0703A}
+  .tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.5rem;list-style:none;padding:0}
+  .tags li{font-size:.85rem;padding:.2rem .65rem;border-radius:6px;border:1px solid currentColor;opacity:.85}
+  .project .link{display:inline-block;margin-top:1.25rem;font-weight:700;text-underline-offset:4px}
+  .gallery .main{display:block;width:100%;height:auto;aspect-ratio:1352/632;object-fit:cover;object-position:top;border-radius:10px;border:1px solid rgba(127,140,140,.35);background:#1a2326}
+  .thumbs{display:flex;gap:.5rem;margin-top:.6rem;overflow-x:auto}
+  .thumbs button{flex:0 0 auto;width:96px;padding:0;border:2px solid transparent;border-radius:7px;background:none;cursor:pointer;opacity:.6;overflow:hidden}
+  .thumbs button[aria-pressed="true"]{border-color:var(--sun);opacity:1}
+  .thumbs button:hover{opacity:1}
+  .thumbs img{display:block;width:100%;aspect-ratio:1352/632;object-fit:cover;object-position:top}
+  .gallery figcaption{font-size:.9rem;margin-top:.5rem;opacity:.75}
+
+  /* services */
+  .services{display:grid;gap:0}
+  .service{display:grid;grid-template-columns:minmax(12rem,1fr) 2fr;gap:1.5rem;padding-block:1.4rem;border-bottom:1px solid var(--line)}
+  .service:first-child{border-top:1px solid var(--line)}
+  .service h3{font-size:1.15rem;font-weight:700}
+  .service p{color:var(--muted);max-width:56ch}
+
+  /* contact */
+  .contact p{max-width:48ch;margin-bottom:1.75rem;color:var(--muted)}
+  .contact .cta{margin-top:0}
+  footer{padding-block:2rem;color:var(--muted);font-size:.9rem;border-top:1.5px solid var(--line)}
+
+  @media (max-width:760px){
+    .project{grid-template-columns:1fr}
+    .service{grid-template-columns:1fr;gap:.4rem}
+    .langs button{padding:.3rem .65rem}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="name" href="#" data-i18n="name">Ahmed Sami Maatougui</a>
+    <div class="langs" role="group" aria-label="Language">
+      <button type="button" data-lang="ar" lang="ar">عربي</button>
+      <button type="button" data-lang="fr" lang="fr">FR</button>
+      <button type="button" data-lang="en" lang="en">EN</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <h1 data-i18n="heroTitle">I build websites that speak your customers’ language.</h1>
+      <p data-i18n="heroText">Full-stack developer and computer science student in Annaba. Business websites and web apps in Arabic, French and English.</p>
+      <p class="hint" data-i18n="heroHint">Try the language switch at the top. This page flips to Arabic, right to left, the way your site would.</p>
+      <div class="cta">
+        <a class="btn primary" href="https://wa.me/213696415401" data-i18n="ctaWhatsapp">Message me on WhatsApp</a>
+        <a class="btn ghost" href="#work" data-i18n="ctaWork">See my work</a>
+      </div>
+    </div>
+
+    <section id="work">
+      <h2 data-i18n="workTitle">Work</h2>
+      <div class="work">
+        <article class="project featured theme-tea">
+          <div>
+            <h3 data-i18n="teaTitle">Tea Shop</h3>
+            <p class="role" data-i18n="teaRole">Online ordering platform · live</p>
+            <p data-i18n="teaText">A platform where tea shops open their own online shop and take orders. Customers pick a shop, browse the menu and order. Each owner runs everything from a dashboard.</p>
+            <ul class="points">
+              <li data-i18n="tea1">Shop owners create their shop and manage their own menu</li>
+              <li data-i18n="tea2">Sell by the piece, by the gram or by amount in dinars</li>
+              <li data-i18n="tea3">Order tracking from pending to delivered, with revenue totals</li>
+              <li data-i18n="tea4">A platform admin view to oversee and block shops</li>
+            </ul>
+            <ul class="tags">
+              <li data-i18n="tagBilingual">AR / FR</li><li data-i18n="tagOrders">Online orders</li><li data-i18n="tagAdmin">Admin panel</li>
+            </ul>
+            <a class="link" href="https://super-genie-a046df.netlify.app/" target="_blank" rel="noopener" data-i18n="visit">Visit the site</a>
+          </div>
+          <figure class="gallery">
+            <img class="main" src="images/teashop-home.jpg" alt="" data-i18n-alt="capTeaHome">
+            <figcaption data-i18n="capTeaHome"></figcaption>
+            <div class="thumbs">
+              <button type="button" aria-pressed="true" data-src="images/teashop-home.jpg" data-cap="capTeaHome"><img src="images/teashop-home.jpg" alt="" loading="lazy"></button>
+              <button type="button" aria-pressed="false" data-src="images/teashop-menu.jpg" data-cap="capTeaMenu"><img src="images/teashop-menu.jpg" alt="" loading="lazy"></button>
+              <button type="button" aria-pressed="false" data-src="images/teashop-cart.jpg" data-cap="capTeaCart"><img src="images/teashop-cart.jpg" alt="" loading="lazy"></button>
+              <button type="button" aria-pressed="false" data-src="images/teashop-dashboard.jpg" data-cap="capTeaDash"><img src="images/teashop-dashboard.jpg" alt="" loading="lazy"></button>
+            </div>
+          </figure>
+        </article>
+
+        <article class="project featured theme-lg">
+          <div>
+            <h3 data-i18n="lgTitle">Loup-Garou</h3>
+            <p class="role" data-i18n="lgRole">Website for a client · live</p>
+            <p data-i18n="lgText">A website for real-life Werewolf game nights run with a TikTok community. Players sign up for the next game, and the organiser manages everything from an admin dashboard.</p>
+            <ul class="points">
+              <li data-i18n="lg1">Game sign-up with 20 seats and a live countdown</li>
+              <li data-i18n="lg2">A shop with cart, orders and stock tracking</li>
+              <li data-i18n="lg3">Admin dashboard for requests, players, orders and inventory</li>
+            </ul>
+            <ul class="tags">
+              <li data-i18n="tagBilingual">AR / FR</li><li data-i18n="tagAdmin">Admin panel</li><li>MySQL</li>
+            </ul>
+            <a class="link" href="https://loup-garou-site.onrender.com/" target="_blank" rel="noopener" data-i18n="visit">Visit the site</a>
+          </div>
+          <figure class="gallery">
+            <img class="main" src="images/loupgarou-home.jpg" alt="" data-i18n-alt="capLgHome">
+            <figcaption data-i18n="capLgHome"></figcaption>
+            <div class="thumbs">
+              <button type="button" aria-pressed="true" data-src="images/loupgarou-home.jpg" data-cap="capLgHome"><img src="images/loupgarou-home.jpg" alt="" loading="lazy"></button>
+              <button type="button" aria-pressed="false" data-src="images/loupgarou-signup.jpg" data-cap="capLgSignup"><img src="images/loupgarou-signup.jpg" alt="" loading="lazy"></button>
+              <button type="button" aria-pressed="false" data-src="images/loupgarou-admin.jpg" data-cap="capLgAdmin"><img src="images/loupgarou-admin.jpg" alt="" loading="lazy"></button>
+            </div>
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    <section id="services">
+      <h2 data-i18n="servicesTitle">What I can make for you</h2>
+      <div class="services">
+        <div class="service">
+          <h3 data-i18n="s1Title">A website for your business</h3>
+          <p data-i18n="s1Text">For restaurants, shops, clinics, gyms and schools. Your services, photos, opening hours, map and a contact button. Usually ready in about a week.</p>
+        </div>
+        <div class="service">
+          <h3 data-i18n="s2Title">A custom web app</h3>
+          <p data-i18n="s2Text">Bookings, stock management, member lists, an admin panel — tools built around how you actually work.</p>
+        </div>
+        <div class="service">
+          <h3 data-i18n="s3Title">Arabic and French, done properly</h3>
+          <p data-i18n="s3Text">Real right-to-left layouts for Arabic, not a translation squeezed into a French design.</p>
+        </div>
+        <div class="service">
+          <h3 data-i18n="s4Title">Fixes and updates</h3>
+          <p data-i18n="s4Text">Something broken on your current site, or a feature you need added? Send me the details.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2 data-i18n="contactTitle">Let’s talk about your project</h2>
+      <p data-i18n="contactText">Tell me what you need and I’ll reply with a price and a timeline. I work with clients in Annaba and online.</p>
+      <div class="cta">
+        <a class="btn primary" href="https://wa.me/213696415401" data-i18n="ctaWhatsapp">Message me on WhatsApp</a>
+        <a class="btn ghost" href="mailto:samimaat09@gmail.com" data-i18n="ctaEmail">Send an email</a>
+        <a class="btn ghost" href="https://github.com/samimaat09-ops">GitHub</a>
+      </div>
+    </section>
+  </main>
+
+  <footer data-i18n="footer">Ahmed Sami Maatougui · Annaba, Algeria</footer>
+</div>
+
+<script>
+const T = {
+  en: {
+    capTeaHome:"Home page",
+    capTeaMenu:"A shop’s menu with prices and sizes",
+    capTeaCart:"Cart and order total",
+    capTeaDash:"Shop owner’s dashboard",
+    capLgHome:"Home page",
+    capLgSignup:"Sign-up for the next game",
+    capLgAdmin:"Admin dashboard",
+  },
+  fr: {
+    capTeaHome:"Page d’accueil",
+    capTeaMenu:"Le menu d’une boutique, avec prix et tailles",
+    capTeaCart:"Panier et total de la commande",
+    capTeaDash:"Tableau de bord du gérant",
+    capLgHome:"Page d’accueil",
+    capLgSignup:"Inscription à la prochaine partie",
+    capLgAdmin:"Tableau de bord admin",
+    lgText:"Un site pour des soirées Loup-Garou en vrai, organisées avec une communauté TikTok. Les joueurs s’inscrivent à la prochaine partie et l’organisateur gère tout depuis un tableau de bord.",
+    lg1:"Inscription aux parties, 20 places et compte à rebours en direct",
+    lg2:"Une boutique avec panier, commandes et suivi du stock",
+    lg3:"Tableau de bord pour les demandes, joueurs, commandes et inventaire",
+    name:"Ahmed Sami Maatougui",
+    heroTitle:"Je crée des sites qui parlent la langue de vos clients.",
+    heroText:"Développeur full-stack et étudiant en informatique à Annaba. Sites vitrines et applications web en arabe, français et anglais.",
+    heroHint:"Essayez le choix de langue en haut. La page passe en arabe, de droite à gauche, comme le ferait votre site.",
+    ctaWhatsapp:"M’écrire sur WhatsApp", ctaWork:"Voir mes projets", ctaEmail:"Envoyer un e-mail",
+    workTitle:"Projets",
+    teaTitle:"Tea Shop", teaRole:"Plateforme de commande en ligne · en ligne",
+    teaText:"Une plateforme où les salons de thé ouvrent leur boutique en ligne et reçoivent des commandes. Le client choisit une boutique, consulte le menu et commande. Chaque gérant gère tout depuis son tableau de bord.",
+    tea1:"Les gérants créent leur boutique et gèrent leur propre menu",
+    tea2:"Vente à la pièce, au gramme ou selon un montant en dinars",
+    tea3:"Suivi des commandes, de l’attente à la livraison, avec le total des revenus",
+    tea4:"Un espace administrateur pour superviser et bloquer les boutiques",
+    tagOrders:"Commandes en ligne",
+    lgTitle:"Loup-Garou", lgRole:"Site pour un client · en ligne",
+    tagAdmin:"Panneau admin", tagBilingual:"AR / FR", visit:"Voir le site",
+    servicesTitle:"Ce que je peux faire pour vous",
+    s1Title:"Un site pour votre commerce",
+    s1Text:"Pour restaurants, boutiques, cabinets, salles de sport et écoles. Vos services, photos, horaires, plan d’accès et un bouton de contact. Prêt en une semaine environ.",
+    s2Title:"Une application web sur mesure",
+    s2Text:"Réservations, gestion de stock, listes de membres, panneau d’administration — des outils adaptés à votre façon de travailler.",
+    s3Title:"L’arabe et le français, bien faits",
+    s3Text:"Une vraie mise en page de droite à gauche pour l’arabe, pas une traduction collée dans un design français.",
+    s4Title:"Corrections et mises à jour",
+    s4Text:"Quelque chose ne marche plus sur votre site, ou il vous manque une fonction ? Envoyez-moi les détails.",
+    contactTitle:"Parlons de votre projet",
+    contactText:"Dites-moi ce dont vous avez besoin et je vous réponds avec un prix et un délai. Je travaille avec des clients à Annaba et en ligne.",
+    footer:"Ahmed Sami Maatougui · Annaba, Algérie"
+  },
+  ar: {
+    capTeaHome:"الصفحة الرئيسية",
+    capTeaMenu:"قائمة محل مع الأسعار والأحجام",
+    capTeaCart:"سلة المشتريات ومجموع الطلب",
+    capTeaDash:"لوحة تحكّم صاحب المحل",
+    capLgHome:"الصفحة الرئيسية",
+    capLgSignup:"التسجيل في اللعبة القادمة",
+    capLgAdmin:"لوحة تحكّم الإدارة",
+    lgText:"موقع لسهرات لعبة المستذئب الحقيقية، تُنظَّم مع مجتمع على تيك توك. يسجّل اللاعبون في اللعبة القادمة، ويسيّر المنظّم كل شيء من لوحة التحكم.",
+    lg1:"التسجيل في الألعاب: 20 مقعدًا وعدّ تنازلي مباشر",
+    lg2:"متجر بسلة مشتريات وطلبات ومتابعة للمخزون",
+    lg3:"لوحة تحكّم للطلبات واللاعبين والمشتريات والمخزون",
+    name:"أحمد سامي معتوقي",
+    heroTitle:"أصمّم مواقع تتكلّم لغة زبائنك.",
+    heroText:"مطوّر ويب متكامل وطالب إعلام آلي في عنابة. مواقع للمحلات والشركات وتطبيقات ويب بالعربية والفرنسية والإنجليزية.",
+    heroHint:"جرّب تغيير اللغة في الأعلى. الصفحة تتحوّل إلى العربية من اليمين إلى اليسار، كما سيفعل موقعك.",
+    ctaWhatsapp:"راسلني على واتساب", ctaWork:"شاهد أعمالي", ctaEmail:"أرسل بريدًا إلكترونيًا",
+    workTitle:"أعمالي",
+    teaTitle:"محل الشاي", teaRole:"منصة طلبات عبر الإنترنت · منشور",
+    teaText:"منصة تسمح لمحلات الشاي بفتح متجرها الخاص على الإنترنت واستقبال الطلبات. يختار الزبون المحل، يتصفح القائمة ويطلب. وكل صاحب محل يسيّر كل شيء من لوحة التحكم.",
+    tea1:"أصحاب المحلات ينشئون محلهم ويسيّرون قائمتهم بأنفسهم",
+    tea2:"البيع بالقطعة أو بالغرام أو حسب المبلغ بالدينار",
+    tea3:"متابعة الطلبات من الانتظار حتى التسليم مع مجموع الإيرادات",
+    tea4:"واجهة لمدير المنصة لمراقبة المحلات وحظرها",
+    tagOrders:"طلبات عبر الإنترنت",
+    lgTitle:"لوغارو (المستذئب)", lgRole:"موقع لزبون · منشور",
+    tagAdmin:"لوحة تحكّم", tagBilingual:"عربي / فرنسي", visit:"زيارة الموقع",
+    servicesTitle:"ماذا يمكنني أن أصنع لك",
+    s1Title:"موقع لمحلّك أو نشاطك",
+    s1Text:"للمطاعم والمحلات والعيادات وقاعات الرياضة والمدارس. خدماتك، صورك، أوقات العمل، الخريطة وزر للتواصل. جاهز عادةً في حوالي أسبوع.",
+    s2Title:"تطبيق ويب حسب الطلب",
+    s2Text:"حجوزات، تسيير المخزون، قوائم الأعضاء، لوحة إدارة — أدوات مبنية على طريقة عملك الحقيقية.",
+    s3Title:"العربية والفرنسية كما يجب",
+    s3Text:"تصميم حقيقي من اليمين إلى اليسار للعربية، وليس ترجمة محشورة في تصميم فرنسي.",
+    s4Title:"إصلاحات وتحديثات",
+    s4Text:"شيء لا يعمل في موقعك الحالي، أو تحتاج إضافة ميزة؟ أرسل لي التفاصيل.",
+    contactTitle:"لنتحدّث عن مشروعك",
+    contactText:"أخبرني بما تحتاجه وسأرد عليك بالسعر والمدة. أعمل مع زبائن في عنابة وعبر الإنترنت.",
+    footer:"أحمد سامي معتوقي · عنابة، الجزائر"
+  }
+};
+// keep the English text from the HTML as the source
+document.querySelectorAll("[data-i18n]").forEach(el => { const k=el.dataset.i18n; if (!(k in T.en)) T.en[k] = el.textContent; });
+
+function setLang(lang, animate){
+  const apply = () => {
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const v = T[lang][el.dataset.i18n];
+      if (v) el.textContent = v;
+    });
+    document.querySelectorAll(".thumbs button").forEach(b => b.setAttribute("aria-label", T[lang][b.dataset.cap] || ""));
+    document.querySelectorAll("[data-i18n-alt]").forEach(el => { el.alt = T[lang][el.dataset.i18nAlt] || ""; });
+    document.querySelectorAll(".langs button").forEach(b =>
+      b.setAttribute("aria-pressed", b.dataset.lang === lang));
+    try { localStorage.setItem("lang", lang); } catch(e){}
+  };
+  const h1 = document.querySelector(".hero h1");
+  if (animate && !matchMedia("(prefers-reduced-motion: reduce)").matches){
+    h1.classList.add("fading");
+    setTimeout(() => { apply(); h1.classList.remove("fading"); }, 220);
+  } else apply();
+}
+document.querySelectorAll(".langs button").forEach(b =>
+  b.addEventListener("click", () => setLang(b.dataset.lang, true)));
+
+// screenshot galleries
+document.querySelectorAll(".gallery").forEach(g => {
+  const main = g.querySelector(".main"), cap = g.querySelector("figcaption");
+  g.querySelectorAll(".thumbs button").forEach(b => {
+    b.setAttribute("aria-label", "");
+    b.addEventListener("click", () => {
+      main.src = b.dataset.src;
+      main.dataset.i18nAlt = b.dataset.cap;
+      cap.dataset.i18n = b.dataset.cap;
+      const lang = document.documentElement.lang;
+      cap.textContent = T[lang][b.dataset.cap];
+      main.alt = T[lang][b.dataset.cap];
+      g.querySelectorAll(".thumbs button").forEach(x => x.setAttribute("aria-pressed", x === b));
+    });
+  });
+});
+
+let saved = "en";
+try { saved = localStorage.getItem("lang") || "en"; } catch(e){}
+setLang(saved, false);
+</script>
+</body>
+</html>
