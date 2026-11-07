@@ -64,7 +64,8 @@
   .theme-tea .role{color:#E0B565}
   .theme-lg{background:#0C1512;color:#EFE6D2}
   .theme-lg .role{color:#F0703A}
-  .tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.5rem;list-style:none;padding:0}
+  .theme-medu{background:#0C1A4D;color:#E6ECFA}
+  .theme-medu .role{color:#8FB4FF}  .tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.5rem;list-style:none;padding:0}
   .tags li{font-size:.85rem;padding:.2rem .65rem;border-radius:6px;border:1px solid currentColor;opacity:.85}
   .project .link{display:inline-block;margin-top:1.25rem;font-weight:700;text-underline-offset:4px}
   .gallery .main{display:block;width:100%;height:auto;aspect-ratio:1352/632;object-fit:cover;object-position:top;border-radius:10px;border:1px solid rgba(127,140,140,.35);background:#1a2326}
@@ -172,6 +173,33 @@
             </div>
           </figure>
         </article>
+
+        <article class="project featured theme-medu">
+          <div>
+            <h3 data-i18n="meduTitle">MEDU Annaba</h3>
+            <p class="role" data-i18n="meduRole">Study platform for medical students · live</p>
+            <p data-i18n="meduText">A website for medical students with courses, QCM practice, notes and everything they need for their studies. Open to all students, and fully in French.</p>
+            <ul class="points">
+              <li data-i18n="medu1">Courses for medical studies, all in one place</li>
+              <li data-i18n="medu2">QCM practice to train for exams</li>
+              <li data-i18n="medu3">Notes and study resources for every student</li>
+            </ul>
+            <ul class="tags">
+              <li data-i18n="tagFrOnly">French only</li><li data-i18n="tagQcm">QCM</li><li data-i18n="tagCourses">Courses</li>
+            </ul>
+            <a class="link" href="https://medu-annaba.onrender.com/" target="_blank" rel="noopener" data-i18n="visit">Visit the site</a>
+          </div>
+          <figure class="gallery">
+            <img class="main" src="medu-home.jpg" alt="" data-i18n-alt="capMeduHome">
+            <figcaption data-i18n="capMeduHome"></figcaption>
+            <div class="thumbs">
+              <button type="button" aria-pressed="true" data-src="medu-home.jpg" data-cap="capMeduHome"><img src="medu-home.jpg" alt="" loading="lazy"></button>
+              <button type="button" aria-pressed="false" data-src="medu-course.jpg" data-cap="capMeduCourse"><img src="medu-course.jpg" alt="" loading="lazy"></button>
+              <button type="button" aria-pressed="false" data-src="medu-overview.jpg" data-cap="capMeduOverview"><img src="medu-overview.jpg" alt="" loading="lazy"></button>
+              <button type="button" aria-pressed="false" data-src="medu-login.jpg" data-cap="capMeduLogin"><img src="medu-login.jpg" alt="" loading="lazy"></button>
+            </div>
+          </figure>
+        </article>
       </div>
     </section>
 
@@ -221,6 +249,10 @@ const T = {
     capLgHome:"Home page",
     capLgSignup:"Sign-up for the next game",
     capLgAdmin:"Admin dashboard",
+    capMeduHome:"Home page with the subjects",
+    capMeduCourse:"A course: official lesson, notes and QCM",
+    capMeduOverview:"Overview with days of access left",
+    capMeduLogin:"Login page",
   },
   fr: {
     capTeaHome:"Page d’accueil",
@@ -230,6 +262,10 @@ const T = {
     capLgHome:"Page d’accueil",
     capLgSignup:"Inscription à la prochaine partie",
     capLgAdmin:"Tableau de bord admin",
+    capMeduHome:"Page d’accueil avec les matières",
+    capMeduCourse:"Un cours : cours officiel, notes et QCM",
+    capMeduOverview:"Aperçu avec les jours d’accès restants",
+    capMeduLogin:"Page de connexion",
     lgText:"Un site pour des soirées Loup-Garou en vrai, organisées avec une communauté TikTok. Les joueurs s’inscrivent à la prochaine partie et l’organisateur gère tout depuis un tableau de bord.",
     lg1:"Inscription aux parties, 20 places et compte à rebours en direct",
     lg2:"Une boutique avec panier, commandes et suivi du stock",
@@ -247,6 +283,12 @@ const T = {
     tea3:"Suivi des commandes, de l’attente à la livraison, avec le total des revenus",
     tea4:"Un espace administrateur pour superviser et bloquer les boutiques",
     tagOrders:"Commandes en ligne",
+    meduTitle:"MEDU Annaba", meduRole:"Plateforme d’étude pour étudiants en médecine · en ligne",
+    meduText:"Un site pour les étudiants en médecine avec des cours, des QCM, des notes et tout ce qu’il faut pour leurs études. Ouvert à tous les étudiants, entièrement en français.",
+    medu1:"Les cours de médecine réunis au même endroit",
+    medu2:"Des QCM pour s’entraîner avant les examens",
+    medu3:"Des notes et des ressources de révision pour chaque étudiant",
+    tagFrOnly:"Français uniquement", tagQcm:"QCM", tagCourses:"Cours",
     lgTitle:"Loup-Garou", lgRole:"Site pour un client · en ligne",
     tagAdmin:"Panneau admin", tagBilingual:"AR / FR", visit:"Voir le site",
     servicesTitle:"Ce que je peux faire pour vous",
@@ -270,6 +312,10 @@ const T = {
     capLgHome:"الصفحة الرئيسية",
     capLgSignup:"التسجيل في اللعبة القادمة",
     capLgAdmin:"لوحة تحكّم الإدارة",
+    capMeduHome:"الصفحة الرئيسية مع المواد",
+    capMeduCourse:"درس: الدرس الرسمي والملاحظات وأسئلة QCM",
+    capMeduOverview:"نظرة عامة مع أيام الاشتراك المتبقية",
+    capMeduLogin:"صفحة تسجيل الدخول",
     lgText:"موقع لسهرات لعبة المستذئب الحقيقية، تُنظَّم مع مجتمع على تيك توك. يسجّل اللاعبون في اللعبة القادمة، ويسيّر المنظّم كل شيء من لوحة التحكم.",
     lg1:"التسجيل في الألعاب: 20 مقعدًا وعدّ تنازلي مباشر",
     lg2:"متجر بسلة مشتريات وطلبات ومتابعة للمخزون",
@@ -287,6 +333,12 @@ const T = {
     tea3:"متابعة الطلبات من الانتظار حتى التسليم مع مجموع الإيرادات",
     tea4:"واجهة لمدير المنصة لمراقبة المحلات وحظرها",
     tagOrders:"طلبات عبر الإنترنت",
+    meduTitle:"ميدو عنابة (MEDU)", meduRole:"منصة دراسة لطلبة الطب · منشور",
+    meduText:"موقع لطلبة الطب فيه دروس وأسئلة QCM وملاحظات وكل ما يحتاجونه في دراستهم. مفتوح لجميع الطلبة، وكله بالفرنسية.",
+    medu1:"دروس الطب مجموعة في مكان واحد",
+    medu2:"أسئلة QCM للتدرّب قبل الامتحانات",
+    medu3:"ملاحظات وموارد مراجعة لكل طالب",
+    tagFrOnly:"بالفرنسية فقط", tagQcm:"QCM", tagCourses:"دروس",
     lgTitle:"لوغارو (المستذئب)", lgRole:"موقع لزبون · منشور",
     tagAdmin:"لوحة تحكّم", tagBilingual:"عربي / فرنسي", visit:"زيارة الموقع",
     servicesTitle:"ماذا يمكنني أن أصنع لك",
